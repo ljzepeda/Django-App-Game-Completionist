@@ -3,6 +3,8 @@
 
 <h1>Game Details</h1>
 
+<div class="row">
+  <div class="col s6">
 <div class="card">
   <div class="card-content">
     <span class="card-title">{{ game.name }}</span>
@@ -15,5 +17,49 @@
   <a href="{% url 'games_update' game.id %}">Edit</a>
   <a href="{% url 'games_delete' game.id %}">Delete</a>
 </div>
+</div>
+</div>
+
+<div class="col s6">
+  <form action="{% url 'add_activity' game.id %}" method="POST">
+    {% csrf_token %}
+    <!-- Render the inputs -->
+    {{ activity_form.as_p }}
+    <input type="submit" class="btn" value="Add Activity">
+  </form>
+  <br>
+  {% if game.activity_for_today %}
+    <div class="card-panel teal-text center-align">{{game.name}} has been played today</div>
+  {% else %}
+    <div class="card-panel red-text center-align">{{game.name}} has not been played today</div>
+  {% endif %}
+  <table class="striped">
+    <thead>
+      <tr><th>Date</th><th>Progress</th></tr> 
+    </thead>
+    <tbody>
+      {% for activity in game.activity_set.all %}
+        <tr>
+          <td>{{activity.date}}</td>
+          <td>{{activity.get_progress_display}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+
+<script>
+  const dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+  
+  const selectEl = document.getElementById('id_progress');
+  M.FormSelect.init(selectEl);
+  </script>  
 
 {% endblock %}
