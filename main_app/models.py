@@ -8,9 +8,9 @@ class Game(models.Model):
   description = models.TextField(max_length=250)
   year = models.IntegerField()
 
-def __str__(self):
+  def __str__(self):
     #return self.name
     return f'{self.name} ({self.id})'
 
-def get_absolute_url(self):
+  def get_absolute_url(self):
     return reverse('detail', kwargs={'game_id': self.id})
