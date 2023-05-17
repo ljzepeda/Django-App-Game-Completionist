@@ -28,6 +28,7 @@ class Migration(migrations.Migration):
                 ('genre', models.CharField(max_length=100)),
                 ('description', models.TextField(max_length=250)),
                 ('year', models.IntegerField()),
+                ('achievements', models.ManyToManyField(to='main_app.achievement')),
             ],
         ),
         migrations.CreateModel(

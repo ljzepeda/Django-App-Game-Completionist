@@ -28,14 +28,18 @@ def games_index(request):
 # View game
 def games_detail(request, game_id):
   game = Game.objects.get(id=game_id)
+  id_list = game.achievements.all().values_list('id')
+  achievements_game_doesnt_have = Achievement.objects.exclude(id__in=id_list)
   activity_form = ActivityForm()
   return render(request, 'games/detail.html', {
     'game': game, 'activity_form': activity_form
+    'achievements': achievements_game_doesnt_have
   })
 
 class GameCreate(CreateView):
   model = Game
-  fields = '__all__'
+  #fields = '__all__'
+  fields = ['name', 'genre', 'description', 'year']
   #success_url = '/games/{game_id}'
 
 class GameUpdate(UpdateView):
@@ -48,15 +52,8 @@ class GameDelete(DeleteView):
 
 # Activity Views
 def add_activity(request, game_id):
-  # create a ModelForm instance using 
-  # the data that was submitted in the form
   form = ActivityForm(request.POST)
-  # validate the form
   if form.is_valid():
-    # We want a model instance, but
-    # we can't save to the db yet
-    # because we have not assigned the
-    # game_id FK.
     new_activity = form.save(commit=False)
     new_activity.game_id = game_id
     new_activity.save()
@@ -81,3 +78,11 @@ class AchievementUpdate(UpdateView):
 class AchievementDelete(DeleteView):
   model = Achievement
   success_url = '/achievements'
+
+def assoc_achievement(request, game_id, achievement_id):
+  Game.objects.get(id=game_id).achievements.add(achievement_id)
+  return redirect('detail', game_id=game_id)
+
+def unassoc_achievement(request, game_id, achievement_id):
+  Game.objects.get(id=game_id).achievements.remove(achievement_id)
+  return redirect('detail', game_id=game_id)
