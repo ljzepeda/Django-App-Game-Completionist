@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Game
+from django.views.generic import ListView, DetailView
+from .models import Game, Achievement
 from .forms import ActivityForm
 
 # Dummy Python List for Data
@@ -60,3 +61,23 @@ def add_activity(request, game_id):
     new_activity.game_id = game_id
     new_activity.save()
   return redirect('detail', game_id=game_id)
+
+# Achievement Views
+
+class AchievementList(ListView):
+  model = Achievement
+
+class AchievementDetail(DetailView):
+  model = Achievement
+
+class AchievementCreate(CreateView):
+  model = Achievement
+  fields = '__all__'
+
+class AchievementUpdate(UpdateView):
+  model = Achievement
+  fields = ['name', 'color']
+
+class AchievementDelete(DeleteView):
+  model = Achievement
+  success_url = '/achievements'

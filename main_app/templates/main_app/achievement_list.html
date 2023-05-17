@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Achievement List</h1>
+
+{% for achievement in achievement_list %}
+  <a href="{% url 'achievements_detail' achievement.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ achievement.title }}</span>
+            <p>Color: {{ achievement.task }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

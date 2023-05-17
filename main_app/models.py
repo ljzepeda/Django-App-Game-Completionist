@@ -10,7 +10,20 @@ PROGRESS = (
 )
 
 # Create your models here.
-# Game Model
+
+# Achievement Model (Many to Many)
+class Achievement(models.Model):
+  title = models.CharField(max_length=50)
+  task = models.CharField(max_length=100)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('achievements_detail', kwargs={'pk': self.id})
+
+
+# Game Model (Main)
 class Game(models.Model):
   name = models.CharField(max_length=100)
   genre = models.CharField(max_length=100)
@@ -27,7 +40,7 @@ class Game(models.Model):
   def activity_for_today(self):
     return self.activity_set.filter(date=date.today()).count() >= 1
 
-#Activity Model
+#Activity Model (One to Many)
 class Activity(models.Model):
   date = models.DateField('Activity Date')
   progress = models.CharField(
