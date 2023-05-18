@@ -17,7 +17,7 @@ class Achievement(models.Model):
   task = models.CharField(max_length=100)
 
   def __str__(self):
-    return self.name
+    return self.title
 
   def get_absolute_url(self):
     return reverse('achievements_detail', kwargs={'pk': self.id})
@@ -30,9 +30,9 @@ class Game(models.Model):
   description = models.TextField(max_length=250)
   year = models.IntegerField()
   achievements = models.ManyToManyField(Achievement)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
-    #return self.name
     return f'{self.name} ({self.id})'
 
   def get_absolute_url(self):
@@ -43,7 +43,7 @@ class Game(models.Model):
 
 #Activity Model (One to Many)
 class Activity(models.Model):
-  date = models.DateField('Activity Date')
+  date = models.DateField('activity date')
   progress = models.CharField(
     max_length=3,
     choices=PROGRESS,

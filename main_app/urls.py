@@ -16,4 +16,5 @@ urlpatterns = [
   path('achievements/create/', views.AchievementCreate.as_view(), name='achievements_create'),
   path('achievements/<int:pk>/update/', views.AchievementUpdate.as_view(), name='achievements_update'),
   path('achievements/<int:pk>/delete/', views.AchievementDelete.as_view(), name='achievements_delete'),
+  path('accounts/signup/', views.signup, name='signup'),
 ]
