@@ -40,7 +40,7 @@ class Game(models.Model):
     return reverse('detail', kwargs={'game_id': self.id})
   
   def activity_for_today(self):
-    return self.activity_set.filter(date=date.today()).count() >= 1
+    return self.activity_set.filter(date=date.today()).count() >= 0
 
 #Activity Model (One to Many)
 class Activity(models.Model):
