@@ -3,8 +3,11 @@ Game Completionist allows you to keep track of your gaming backlog through an ac
 
 # Screenshot
 
-<img src="https://drive.google.com/uc?export=view&id=1pe4CzR4W-EIz47N6Y5zI2okNoi_h142p">
-<img src="https://drive.google.com/uc?export=view&id=1ZYBZuW2doig7lzL2Wr_prgi5kplO0-4y">
+![Game Completionist - Game List](https://github.com/ljzepeda/Django-App-Game-Completionist/assets/127067223/606e5eac-b02d-4c0a-8b06-2182671dc9dc)
+
+![Game Completionist - Game Details](https://github.com/ljzepeda/Django-App-Game-Completionist/assets/127067223/ac50cad0-386b-4c9e-aa80-ae331148823c)
+
+
 
 # Technologies Used
 
