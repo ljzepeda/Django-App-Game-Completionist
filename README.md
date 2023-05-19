@@ -23,4 +23,4 @@ Game Completionist allows you to keep track of your gaming backlog through an ac
 
 # Next Steps
 
-- Future enhancements would be to include AWS image upload, unique CSS styling and additional class properties (i.e. Achievement Description).
+- Future enhancements would be to include valdations, AWS image upload, unique CSS styling, additional class properties (i.e. Achievement Description) and adding additional authorization permissions.
