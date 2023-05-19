@@ -85,7 +85,7 @@ class AchievementCreate(CreateView):
 
 class AchievementUpdate(UpdateView):
   model = Achievement
-  fields = ['title', 'task']
+  fields = ['name', 'task']
 
 class AchievementDelete(DeleteView):
   model = Achievement

@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 PROGRESS = (
   ('NS', 'Not Started'),
@@ -13,11 +14,11 @@ PROGRESS = (
 
 # Achievement Model (Many to Many)
 class Achievement(models.Model):
-  title = models.CharField(max_length=50)
+  name = models.CharField(max_length=50)
   task = models.CharField(max_length=100)
 
   def __str__(self):
-    return self.title
+    return self.name
 
   def get_absolute_url(self):
     return reverse('achievements_detail', kwargs={'pk': self.id})

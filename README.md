@@ -1,24 +1,22 @@
 # Django-App-Game-Completionist
-A description of your game. Background info of the game is a nice touch.
+Game Completionist allows you to keep track of your gaming backlog through an activity log and achievement list. 
 
 # Screenshot
 
-<img src="url to your image on imgur">
-<img src="url to your image on imgur">
+<img src="url to your image">
+<img src="url to your image">
 
 # Technologies Used
 
-- JavaScript
+- Python
 - HTML
 - CSS
-- CardStarter CSS Library
+- Django
 
 # Getting Started
 
-[Click to View Project Planning](your Trello url here)
-[Click to Play Connect Four!](your deployment url here)
+[Click to View Game Completionist](your Heroku url here)
 
 # Next Steps
 
-- Future enhancement one...
-- Future enhancement two... 
+- Future enhancements would be to include image upload and CSS styling. 

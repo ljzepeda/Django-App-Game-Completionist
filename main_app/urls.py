@@ -10,6 +10,8 @@ urlpatterns = [
   path('games/<int:pk>/update/', views.GameUpdate.as_view(), name='games_update'),
   path('games/<int:pk>/delete/', views.GameDelete.as_view(), name='games_delete'),
   path('games/<int:game_id>/add_activity/', views.add_activity, name='add_activity'),
+  path('games/<int:game_id>/assoc_achievement/<int:achievement_id>/', views.assoc_achievement, name='assoc_achievement'),
+  path('games/<int:game_id>/unassoc_achievement/<int:achievement_id>/', views.unassoc_achievement, name='unassoc_achievement'),
   # Achievements
   path('achievements/', views.AchievementList.as_view(), name='achievements_index'),
   path('achievements/<int:pk>/', views.AchievementDetail.as_view(), name='achievements_detail'),
