@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 #import environ
-#import django_heroku # Uncomment to run locally
-import os
+import django_heroku 
+#import os
 
 #environ.Env()
 #environ.Env.read_env()
@@ -125,13 +125,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 STATIC_URL = 'static/'
 
-LOGIN_REDIRECT_URL = '/dogs/'
+LOGIN_REDIRECT_URL = '/games/'
 
 LOGOUT_REDIRECT_URL = '/'
 
@@ -140,4 +140,4 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#django_heroku.settings(locals()) # Uncomment to run locally
+django_heroku.settings(locals())
