@@ -1,2 +1,2 @@
-web: gunicorn make_a_list.wsgi
+web: gunicorn gamecompletionist.wsgi
 release: python3 manage.py migrate
